@@ -987,7 +987,7 @@ def main():
                     if global_step % args.image_log_steps == 0 and global_step > 0:
                         if rank == 0:
                             # get prompt from random batch
-                            prompt = tokenizer.decode(batch['tokens'][random.randint(0, len(batch['tokens'])-1)])
+                            prompt = tokenizer.decode(batch['tokens'][random.randint(0, len(batch['tokens'])-1)][0])
 
                             if args.image_log_scheduler == 'DDIMScheduler':
                                 print('using DDIMScheduler scheduler')
